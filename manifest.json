@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Ebay Auto Select & listings Ender",
+  "version": "1.2",
+  "description": "Select eBay Active Listings by filters and automatically end listings page-by-page.",
+  "permissions": ["activeTab", "storage", "scripting", "tabs"],
+  "host_permissions": [
+    "*://*.ebay.com/*",
+    "file:///*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "icons": {
+    "128": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.ebay.com/sh/lst/active*"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ]
+}
